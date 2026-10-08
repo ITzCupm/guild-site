@@ -98,16 +98,16 @@ a{color:inherit}
 #intro{position:fixed;inset:0;z-index:9999;overflow:hidden;cursor:pointer;pointer-events:auto}
 #intro.instant{transition:opacity 280ms ease;opacity:0;pointer-events:none;cursor:default}
 #intro-canvas{position:absolute;inset:0;display:block}
-.intro-hud{position:absolute;left:32px;bottom:28px;color:#8bc7b5;
+.intro-hud{position:absolute;left:32px;bottom:28px;color:#e0848a;
   font:12px/1.5 ui-monospace,"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
-  letter-spacing:.14em;text-transform:uppercase;pointer-events:none;text-shadow:0 0 12px rgba(58,212,176,.35)}
-.intro-brand{font-size:13px;color:#e8fff8;letter-spacing:.22em;margin-bottom:6px}
-.intro-status{color:#6da799}
-.intro-skip{position:absolute;right:26px;top:24px;background:rgba(232,255,248,.04);color:#9fb5ae;
-  border:1px solid rgba(159,181,174,.28);padding:8px 16px;border-radius:999px;
+  letter-spacing:.14em;text-transform:uppercase;pointer-events:none;text-shadow:0 0 12px rgba(230,57,70,.4)}
+.intro-brand{font-size:13px;color:#fff0f0;letter-spacing:.22em;margin-bottom:6px}
+.intro-status{color:#b05a60}
+.intro-skip{position:absolute;right:26px;top:24px;background:rgba(255,232,234,.04);color:#c9a3a6;
+  border:1px solid rgba(201,163,166,.28);padding:8px 16px;border-radius:999px;
   font:11px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;
   cursor:pointer;transition:all .18s ease;font-family:inherit}
-.intro-skip:hover{color:#e8fff8;border-color:rgba(232,255,248,.55);background:rgba(232,255,248,.08)}
+.intro-skip:hover{color:#fff0f0;border-color:rgba(255,232,234,.55);background:rgba(255,232,234,.08)}
 html.skip-intro #intro{display:none !important}
 html.skip-intro body.intro-on{overflow:auto}
 
@@ -1111,7 +1111,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 64px;background:var(--pap
     return Math.max(0, Math.min(1, local * 7));
   }
 
-  ctx.fillStyle = '#05080a';
+  ctx.fillStyle = '#0a0506';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   function draw(now){
@@ -1121,7 +1121,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 64px;background:var(--pap
     var ch = canvas.height / rows;
 
     ctx.globalCompositeOperation = 'source-over';
-    ctx.fillStyle = '#05080a';
+    ctx.fillStyle = '#0a0506';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     var fontSize = Math.max(8, Math.min(cw, ch) * 1.05);
@@ -1153,9 +1153,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 64px;background:var(--pap
         var pulse = 0.5 + 0.5 * Math.sin((x + y) * 0.13 - t * 2.6);
         a *= 0.72 + 0.28 * pulse;
 
-        var hue = 156 + (n - 0.5) * 70 + Math.sin(t * 0.7 + x * 0.04) * 14;
+        var hue = 356 + (n - 0.5) * 36 + Math.sin(t * 0.7 + x * 0.04) * 10;
         var lig = 22 + n * 32 + pulse * 6;
-        var sat = 58 + pulse * 12;
+        var sat = 80 + pulse * 12;
         ctx.fillStyle = 'hsla(' + hue + ', ' + sat + '%, ' + lig + '%, ' + a + ')';
         ctx.fillText(chr, x * cw, y * ch);
       }
